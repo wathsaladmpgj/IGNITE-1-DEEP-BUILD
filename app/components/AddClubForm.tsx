@@ -1,7 +1,9 @@
+// components/AddClubForm.tsx
 "use client";
 
 import { useState, type FormEvent } from "react";
 import { registerClub } from "@/app/actions/add-club";
+
 export default function AddClubForm() {
   const [clubName, setClubName] = useState("");
   const [email, setEmail] = useState("");
@@ -78,7 +80,7 @@ export default function AddClubForm() {
               htmlFor="email"
               className="mb-1.5 block text-sm font-medium text-gray-700"
             >
-              Chairperson Email
+              Email
             </label>
             <input
               id="email"
@@ -86,7 +88,7 @@ export default function AddClubForm() {
               required
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-              placeholder="chairperson@nsbm.ac.lk"
+              placeholder="Email"
               className="w-full rounded-lg border border-gray-300 px-3.5 py-2.5 text-sm text-gray-900 placeholder-gray-400 outline-none transition focus:border-[#06c278] focus:ring-2 focus:ring-[#06c278]/20"
             />
           </div>
