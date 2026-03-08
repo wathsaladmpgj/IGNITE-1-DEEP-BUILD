@@ -1,8 +1,9 @@
 "use server";
 
-import { supabase } from "@/lib/db";
+import { getSupabase } from "@/lib/db";
 
 export async function addEvent(formData: FormData) {
+  const supabase = getSupabase();
   const eventTitle = formData.get("event_title") as string;
   const image = formData.get("image") as string;
   const description = formData.get("description") as string;

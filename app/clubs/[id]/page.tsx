@@ -1,4 +1,4 @@
-import { supabase } from "@/lib/db";
+import { getSupabase } from "@/lib/db";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 
@@ -10,6 +10,7 @@ export default async function ClubDetailPage({
   params: Promise<{ id: string }>;
 }) {
   const { id } = await params;
+  const supabase = getSupabase();
 
   const { data: club, error } = await supabase
     .from("club_details")

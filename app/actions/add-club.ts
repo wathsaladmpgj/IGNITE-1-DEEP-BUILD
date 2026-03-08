@@ -1,14 +1,10 @@
 "use server";
 
-import { createClient } from '@supabase/supabase-js';
-
-// Initialize Supabase client using your environment variables
-const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL!;
-const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!;
-const supabase = createClient(supabaseUrl, supabaseAnonKey);
+import { getSupabase } from "@/lib/db";
 
 // The 'export' keyword here is what fixes your ts(2305) error
 export async function registerClub(clubName: string, email: string, password: string) {
+  const supabase = getSupabase();
   try {
     // Insert into the user_login table without hashing the password
     const { data, error } = await supabase

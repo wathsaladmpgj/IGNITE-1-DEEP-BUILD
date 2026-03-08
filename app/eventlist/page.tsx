@@ -1,9 +1,10 @@
-import { supabase } from "@/lib/db";
+import { getSupabase } from "@/lib/db";
 import Link from "next/link";
 
 export const revalidate = 0;
 
 export default async function EventListPage() {
+  const supabase = getSupabase();
   const { data: events, error } = await supabase
     .from("eventdetails")
     .select("*")
