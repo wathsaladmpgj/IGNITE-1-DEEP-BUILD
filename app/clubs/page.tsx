@@ -24,6 +24,10 @@ export default async function ClubListPage() {
               NSBM N-Connect
             </span>
           </div>
+          <div className="flex items-center gap-6">
+            <Link href="/eventlist" className="text-sm font-medium text-gray-500 transition hover:text-gray-900">Events</Link>
+            <Link href="/clubs" className="text-sm font-medium text-[#06c278]">Clubs</Link>
+          </div>
         </div>
       </header>
 

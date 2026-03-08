@@ -1,4 +1,5 @@
 import { supabase } from "@/lib/db";
+import Link from "next/link";
 
 export const revalidate = 0;
 
@@ -20,6 +21,10 @@ export default async function EventListPage() {
             <span className="text-lg font-semibold text-gray-900">
               NSBM N-Connect
             </span>
+          </div>
+          <div className="flex items-center gap-6">
+            <Link href="/eventlist" className="text-sm font-medium text-[#06c278]">Events</Link>
+            <Link href="/clubs" className="text-sm font-medium text-gray-500 transition hover:text-gray-900">Clubs</Link>
           </div>
         </div>
       </header>
