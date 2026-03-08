@@ -1,9 +1,15 @@
 "use client";
 
 import { useRouter } from "next/navigation";
+import { logout } from "@/app/actions";
 
 export default function DashboardPage() {
   const router = useRouter();
+
+  async function handleLogout() {
+    await logout();
+    router.push("/login");
+  }
 
   return (
     <div className="min-h-screen bg-gray-50">
@@ -19,7 +25,7 @@ export default function DashboardPage() {
             </span>
           </div>
           <button
-            onClick={() => router.push("/login")}
+            onClick={handleLogout}
             className="text-sm font-medium text-gray-500 transition hover:text-gray-900"
           >
             Logout
@@ -69,7 +75,7 @@ export default function DashboardPage() {
           {/* Club Details Update */}
           <button
             onClick={() => {
-              // TODO: navigate to club details page
+              router.push("/club-details");
             }}
             className="group flex flex-col items-center gap-4 rounded-2xl border border-gray-200 bg-white p-8 shadow-sm transition hover:border-[#06c278] hover:shadow-md"
           >
