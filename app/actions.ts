@@ -1,7 +1,6 @@
 "use server";
 
 import { createClient } from "@/utils/supabase/server";
-import { compare } from "bcryptjs";
 
 export async function login(email: string, password: string) {
   const supabase = await createClient();
@@ -16,9 +15,7 @@ export async function login(email: string, password: string) {
     return { success: false, message: "Invalid email or password" };
   }
 
-  const passwordMatch = await compare(password, data.password_hash);
-
-  if (!passwordMatch) {
+  if (password !== data.password_hash) {
     return { success: false, message: "Invalid email or password" };
   }
 

@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, type FormEvent } from "react";
+import { useRouter } from "next/navigation";
 import { login } from "@/app/actions";
 
 export default function LoginPage() {
@@ -8,6 +9,7 @@ export default function LoginPage() {
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
+  const router = useRouter();
 
   async function handleSubmit(e: FormEvent) {
     e.preventDefault();
@@ -20,8 +22,7 @@ export default function LoginPage() {
       if (!result.success) {
         setError(result.message);
       } else {
-        // Login successful — redirect or update state as needed
-        console.log("Logged in:", result.user);
+        router.push("/dashboard");
       }
     } catch {
       setError("Something went wrong. Please try again.");
