@@ -1,10 +1,9 @@
-import { getSupabase } from "@/lib/db";
+import { supabase } from "@/lib/db";
 import Link from "next/link";
 
 export const revalidate = 0;
 
 export default async function ClubListPage() {
-  const supabase = getSupabase();
   const { data: clubs, error } = await supabase
     .from("club_details")
     .select("id, club_name, image_url")
